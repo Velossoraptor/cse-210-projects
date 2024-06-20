@@ -26,7 +26,7 @@ class Program
                 Console.WriteLine("Please enter a journal entry based on the prompt!");
                 Entry testEntry = new Entry();
                 testEntry.EnterResponse();
-                userJournal._entries.Add(testEntry);
+                userJournal.AddEntry(testEntry);
             }
             else if (userInput == 2)
             {
@@ -34,25 +34,15 @@ class Program
             }
             else if (userInput == 3)
             {
-                Console.WriteLine("Unfinished option, quitting.");
-                break;
+                Console.Write("Where would you like to load from? (filename and extension): ");
+                String filename = Console.ReadLine();
+                userJournal.LoadFromFile(filename);
             }
             else if (userInput == 4)
             {
                 Console.Write("Where would you like to save? (filename, no extension): ");
                 String filename = Console.ReadLine() + ".csv";
-                using (StreamWriter outputFile = new StreamWriter(filename))
-                {
-                    outputFile.WriteLine("/*Date, Prompt, Response*/");
-                    foreach (Entry entry in userJournal._entries)
-                    {
-                        // needs to write each entry in date, prompt, response format
-                        String date = entry._date;
-                        String prompt = entry._prompt;
-                        String response = entry._response;
-                        outputFile.WriteLine($"{date},{prompt},{response}");
-                    }
-                }
+                userJournal.SaveToFile(filename);
             }
             else if (userInput == 5)
             {
