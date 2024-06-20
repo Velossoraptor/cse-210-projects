@@ -1,3 +1,5 @@
+//Creativity: I added another part to the entry, it stores the current mood of the person writing the entry!
+
 using System;
 using System.IO;
 class Program

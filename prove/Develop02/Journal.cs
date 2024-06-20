@@ -1,6 +1,5 @@
 public class Journal() {
     public static List<Entry> _entries = new List<Entry>();
-    static String _owner = "";
     DateTime _startDate = DateTime.Now;
 
     public void Display() {
@@ -18,11 +17,12 @@ public class Journal() {
                 {
                     foreach (Entry entry in Journal._entries)
                     {
-                        // needs to write each entry in date, prompt, response format
+                        // needs to write each entry in date, prompt, mood, response format
                         String date = entry._date;
                         String prompt = entry._prompt;
                         String response = entry._response;
-                        outputFile.WriteLine($"{date},{prompt},{response}");
+                        String mood = entry._mood;
+                        outputFile.WriteLine($"{date},{prompt},{mood},{response}");
                     }
                 }
     }
@@ -37,7 +37,8 @@ public class Journal() {
 
             newEntry._date = parts[0];
             newEntry._prompt = parts[1];
-            newEntry._response = parts[2];
+            newEntry._mood = parts[2];
+            newEntry._response = parts[3];
 
             Journal._entries.Add(newEntry);
         }
