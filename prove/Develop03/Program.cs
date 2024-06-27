@@ -4,27 +4,38 @@ class Program
 {
     static void Main(string[] args)
     {
-        // Everything is tested and seems to work, just need to add creativity and set up the main loop in this file
+        // Creativity: Program reminds users to practice in two days at the end
+        DateTime now = DateTime.Today;
+        String nextPractice = now.AddDays(2).ToString();
+        Boolean run = true;
+        Reference exampleReference = new Reference("Mosiah", 3, 19);
+        Scripture exampleScripture = new Scripture(exampleReference, "Put off the natural man and become a saint unto the lord.");
 
+        Console.WriteLine("Your Scripture is:");
 
-        // Word testWord = new Word("Heyo");
-        // Console.WriteLine(testWord.GetDisplayText());
-        // testWord.Hide();
-        // Console.WriteLine(testWord.GetDisplayText());
+        while (run)
+        {
+            Console.WriteLine(exampleScripture.GetDisplayText());
+            Console.WriteLine("Press Enter to continue or type 'quit' to end");
+            String userIn = Console.ReadLine();
 
-        Reference testReference = new Reference("Alma", 3, 5);
-        // Reference testReference2 = new Reference("Alma", 3, 5, 7);
-        // Console.WriteLine(testReference.GetDisplayText());
-        // Console.WriteLine(testReference2.GetDisplayText());
-
-        Scripture testScripture = new Scripture(testReference, "Lorem Ipsum pretend this is alma 3:5");
-        testScripture.HideRandomWords(2);
-        Console.WriteLine(testScripture.GetDisplayText());
-        testScripture.HideRandomWords(2);
-        Console.WriteLine(testScripture.GetDisplayText());
-        testScripture.HideRandomWords(2);
-        Console.WriteLine(testScripture.GetDisplayText());
-        testScripture.HideRandomWords(2);
-        Console.WriteLine(testScripture.GetDisplayText());
+            if (userIn == "")
+            {
+                if (exampleScripture.IsCompletelyHidden())
+                {
+                    Console.WriteLine($"Don't forget to practice on {nextPractice}!");
+                    run = false;
+                    break;
+                }
+                Console.Clear();
+                exampleScripture.HideRandomWords(3);
+            }
+            else if (userIn == "quit")
+            {
+                Console.WriteLine($"Don't forget to practice on {nextPractice}!");
+                run = false;
+                break;
+            }
+        }
     }
 }
