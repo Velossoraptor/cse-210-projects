@@ -6,13 +6,19 @@ public class Activity
 
     public Activity()
     {
-
+        _name = "default";
+        _description = "unknown";
+        _duration = 10;
     }
 
     public void DisplayStartingMessage()
     {
         Console.WriteLine($"Welcome to the {_name} activity!");
         Console.WriteLine(_description);
+        Console.WriteLine();
+        Console.Write("How long would you like to perform the activity? ");
+        _duration = int.Parse(Console.ReadLine());
+        Console.WriteLine();
     }
     public void DisplayEndingMessage()
     {
@@ -20,7 +26,7 @@ public class Activity
     }
     public void ShowSpinner(int seconds)
     {
-        double secondsCounter = 0;
+        // double secondsCounter = 0;
         List<String> spinnerStrings = new List<String>{
             " (*    )",
             " ( *   )",
@@ -44,8 +50,10 @@ public class Activity
         DateTime currentTime = DateTime.Now;
         DateTime futureTime = currentTime.AddSeconds(seconds);
         int i = 0;
-        while (currentTime < futureTime)
+        while (DateTime.Now < futureTime)
         {
+            // The cursor is set to invisible to prevent unnecessary flashing when displaying the loading animation
+            Console.CursorVisible = false;
             String spinnerFrame = spinnerStrings[i];
             Console.Write(spinnerFrame);
             Thread.Sleep(100);
@@ -59,14 +67,16 @@ public class Activity
             {
                 i = 0;
             }
-            secondsCounter += .1;
-            if (secondsCounter >= seconds)
-            {
-                Console.Write("\b\b\b\b\b\b\b\b        \b\b\b\b\b\b\b\b");
-                break;
-            }
+            // secondsCounter += .1;
+            // if (secondsCounter >= seconds)
+            // {
+            //     //Console.Write("\b\b\b\b\b\b\b\b        \b\b\b\b\b\b\b\b");
+            //     break;
+            // }
         }
+        Console.Write("\b\b\b\b\b\b\b\b        \b\b\b\b\b\b\b\b");
         Console.WriteLine();
+        Console.CursorVisible = true;
     }
     public void ShowCountDown(int seconds)
     {
