@@ -24,13 +24,12 @@ public class ListingActivity : Activity
         ShowCountDown(10);
         Console.WriteLine("GO!!");
 
-        DateTime current = DateTime.Now;
-        DateTime future = current.AddSeconds(_duration);
-
-        while (DateTime.Now < future)
-        {
-            GetListFromUser();
-        }
+        List<String> entries = GetListFromUser();
+        _count = entries.Count;
+        Console.WriteLine("Finished!");
+        Console.WriteLine($"You entered {_count} items!");
+        DisplayEndingMessage();
+        ShowSpinner(5);
     }
 
     public void GetRandomPromt()
@@ -43,6 +42,16 @@ public class ListingActivity : Activity
 
     public List<String> GetListFromUser()
     {
-        return new List<String>();
+        DateTime current = DateTime.Now;
+        DateTime future = current.AddSeconds(_duration);
+        List<String> entries = new List<String>();
+
+        while (DateTime.Now < future)
+        {
+            Console.Write("> ");
+            String entry = Console.ReadLine();
+            entries.Add(entry);
+        }
+        return entries;
     }
 }

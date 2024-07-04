@@ -1,3 +1,5 @@
+using System.Globalization;
+
 public class Activity
 {
     protected String _name = "";
@@ -67,14 +69,8 @@ public class Activity
             {
                 i = 0;
             }
-            // secondsCounter += .1;
-            // if (secondsCounter >= seconds)
-            // {
-            //     //Console.Write("\b\b\b\b\b\b\b\b        \b\b\b\b\b\b\b\b");
-            //     break;
-            // }
         }
-        Console.Write("\b\b\b\b\b\b\b\b        \b\b\b\b\b\b\b\b");
+        Console.Write("        \b\b\b\b\b\b\b\b");
         Console.WriteLine();
         Console.CursorVisible = true;
     }
@@ -82,9 +78,35 @@ public class Activity
     {
         for (int i = seconds; i >= 0; i--)
         {
+            int numSec = i;
+            int count = 0;
             Console.Write(i);
             Thread.Sleep(1000);
-            Console.Write("\b \b");
+            while (numSec != 0)
+            {
+                //Determines the number of digits in the seconds countdown
+                numSec = numSec / 10;
+                if (numSec < 1)
+                {
+                    break;
+                }
+                count++;
+            }
+            // For each digit it moves the cursor back
+            for (int j = count; j >= 0; j--)
+            {
+                Console.Write("\b");
+            }
+            // For each digit it prints a space
+            for (int j = count; j >= 0; j--)
+            {
+                Console.Write(" ");
+            }
+            // For each digit it moves the cursor back
+            for (int j = count; j >= 0; j--)
+            {
+                Console.Write("\b");
+            }
         }
     }
 }

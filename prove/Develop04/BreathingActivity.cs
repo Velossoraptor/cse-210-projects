@@ -11,7 +11,7 @@ public class BreathingActivity : Activity
     {
         DisplayStartingMessage();
 
-        Console.WriteLine("Get Ready...");
+        Console.Write("Get Ready...");
         ShowSpinner(5);
 
         DateTime current = DateTime.Now;
