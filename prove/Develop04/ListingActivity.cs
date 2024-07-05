@@ -16,6 +16,7 @@ public class ListingActivity : Activity
 
     public void Run()
     {
+        Console.Clear();
         DisplayStartingMessage();
         Console.Write("Get Ready...");
         ShowSpinner(5);
@@ -28,8 +29,10 @@ public class ListingActivity : Activity
         _count = entries.Count;
         Console.WriteLine("Finished!");
         Console.WriteLine($"You entered {_count} items!");
+        _numCompleted++;
         DisplayEndingMessage();
         ShowSpinner(5);
+        Console.Clear();
     }
 
     public void GetRandomPromt()

@@ -5,12 +5,14 @@ public class Activity
     protected String _name = "";
     protected String _description = "";
     protected int _duration = 0;
+    protected int _numCompleted = 0;
 
     public Activity()
     {
         _name = "default";
         _description = "unknown";
         _duration = 10;
+        _numCompleted = 0;
     }
 
     public void DisplayStartingMessage()
@@ -25,6 +27,7 @@ public class Activity
     public void DisplayEndingMessage()
     {
         Console.WriteLine("Well Done!!");
+        Console.WriteLine($"You completed the activity {_numCompleted} times!");
     }
     public void ShowSpinner(int seconds)
     {

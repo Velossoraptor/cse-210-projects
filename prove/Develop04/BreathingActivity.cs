@@ -9,6 +9,7 @@ public class BreathingActivity : Activity
     }
     public void Run()
     {
+        Console.Clear();
         DisplayStartingMessage();
 
         Console.Write("Get Ready...");
@@ -28,8 +29,9 @@ public class BreathingActivity : Activity
                 Console.WriteLine();
             }
         }
-
+        _numCompleted++;
         DisplayEndingMessage();
         ShowSpinner(5);
+        Console.Clear();
     }
 }

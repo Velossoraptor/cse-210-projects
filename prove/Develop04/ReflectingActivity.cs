@@ -24,6 +24,7 @@ public class ReflectingActivity : Activity
 
     public void Run()
     {
+        Console.Clear();
         DisplayStartingMessage();
         Console.Write("Get Ready...");
         ShowSpinner(5);
@@ -41,9 +42,10 @@ public class ReflectingActivity : Activity
             DisplayQuestion();
             ShowSpinner(5);
         }
-
+        _numCompleted++;
         DisplayEndingMessage();
         ShowSpinner(5);
+        Console.Clear();
     }
 
     public String GetRandomPrompt()
