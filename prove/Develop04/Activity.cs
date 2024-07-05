@@ -18,7 +18,7 @@ public class Activity
         Console.WriteLine($"Welcome to the {_name} activity!");
         Console.WriteLine(_description);
         Console.WriteLine();
-        Console.Write("How long would you like to perform the activity? ");
+        Console.Write("How long would you like to perform the activity in seconds? ");
         _duration = int.Parse(Console.ReadLine());
         Console.WriteLine();
     }

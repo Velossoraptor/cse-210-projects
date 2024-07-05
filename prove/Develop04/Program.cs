@@ -14,7 +14,7 @@ class Program
 
         while (run)
         {
-            Console.Clear();
+            // Console.Clear();
             Console.WriteLine("Please Choose one of the following options by number: ");
             Console.WriteLine("1. Start breathing activity");
             Console.WriteLine("2. Start reflecting activity");
@@ -28,6 +28,8 @@ class Program
                 bActivity.Run();
                 breathingCount++;
                 Console.WriteLine($"You've completed this activity {breathingCount} times!");
+                Thread.Sleep(5000);
+                Console.Clear();
             }
             else if (userIn == 2)
             {
@@ -35,6 +37,8 @@ class Program
                 rActivity.Run();
                 reflectingCount++;
                 Console.WriteLine($"You've completed this activity {reflectingCount} times!");
+                Thread.Sleep(5000);
+                Console.Clear();
             }
             else if (userIn == 3)
             {
@@ -42,14 +46,21 @@ class Program
                 lActivity.Run();
                 listingCount++;
                 Console.WriteLine($"You've completed this activity {listingCount} times!");
+                Thread.Sleep(5000);
+                Console.Clear();
             }
             else if (userIn == 4)
             {
                 run = false;
+                Console.WriteLine("Goodbye!");
+                Thread.Sleep(5000);
+                Console.Clear();
             }
             else
             {
                 Console.WriteLine("Invalid input");
+                Thread.Sleep(5000);
+                Console.Clear();
             }
         }
     }
