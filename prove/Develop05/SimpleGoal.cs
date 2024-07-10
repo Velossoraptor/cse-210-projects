@@ -7,6 +7,12 @@ public class SimpleGoal : Goal
         _isComplete = false;
     }
 
+    public SimpleGoal(String name, String description, String points, bool isComplete) : base(name, description, points)
+    {
+        _isComplete = isComplete;
+    }
+
+
     public override int RecordEvent()
     {
         if (!IsCompleted())

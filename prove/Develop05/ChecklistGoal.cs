@@ -8,6 +8,12 @@ public class ChecklistGoal : Goal {
         _bonus = bonus;
     }
 
+    public ChecklistGoal(String name, String description, String points, int target, int bonus, int amount) : base(name, description, points){
+        _target = target;
+        _bonus = bonus;
+        _amountCompleted = amount;
+    }
+
     public override int RecordEvent()
     {
         _amountCompleted++;
